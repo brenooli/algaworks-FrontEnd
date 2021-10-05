@@ -8,3 +8,31 @@ body {
 label{
   font-weight: bold;
 }
+
+div{
+  margin-top: 15px;
+}
+
+@media( min-width: 1200px) {
+  .container {
+    width: 1170px;
+    margin: 0 auto;
+  }
+}
+
+.col-valor-header {
+  width: 80px;
+  text-align: right;
+}
+
+.col-valor-content {
+  text-align: right;
+}
+
+.col-data-header {
+  width: 120px;
+}
+
+.col-data-content {
+  text-align: center;
+}
