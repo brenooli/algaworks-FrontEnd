@@ -8,10 +8,14 @@ import {TooltipModule} from 'primeng/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LancamentosPesquisaComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
