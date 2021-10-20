@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="ui-g">
+  <div class="p-grid">
     <div class="p-col-12">
       <h1>Lançamentos</h1>
     </div>
@@ -26,28 +26,29 @@
 
     <div class="p-grid">
       <div class="p-col-12">
-        <p-table [value]="lancamentos" [paginator]="true" [rows]="4" [responsive]="true" styleClass="p-datatable-sm">
+        <p-table class="table" [value]="lancamentos" [paginator]="true" [rows]="4" [responsive]="true">
           <ng-template pTemplate="header">
             <tr>
-              <th [ngStyle]="{textAlign: 'center', width : '220px', padding: '5px'}">Pessoa</th>
-              <th [ngStyle]="{textAlign: 'center', width : '220px'}">Descrição</th>
-              <th [ngStyle]="{textAlign: 'center', width : '20px'}">Vencimento</th>
-              <th [ngStyle]="{textAlign: 'center', width : '20px'}">Pagamento </th>
-              <th [ngStyle]="{textAlign: 'center'}" class="col-valor-acao">Valor</th>
-              <th [ngStyle]="{textAlign: 'center'}" class="col-valor-acao">Ação</th>
+              <th class="col-descricao" [ngStyle]="{textAlign: 'center'}">Pessoa</th>
+              <th class="col-descricao" [ngStyle]="{textAlign: 'center'}">Descrição</th>
+              <th [ngStyle]="{textAlign: 'center'}">Vencimento</th>
+              <th [ngStyle]="{textAlign: 'center'}">Pagamento </th>
+              <th [ngStyle]="{textAlign: 'center'}">Valor</th>
+              <th [ngStyle]="{textAlign: 'center'}" class="col-acao">Ação</th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-lancamento>
             <tr>
               <td>{{ lancamento.pessoa }}</td>
               <td>{{ lancamento.descricao }}</td>
-              <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataVencimento }}</td>
+              <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataVencimento | date: 'dd/MM/yyyy' }}</td>
               <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataPagamento }}</td>
               <td [ngStyle]="{color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue', textAlign: 'right'}">{{
-                lancamento.valor }}</td>
-              <td class="col-acoes">
+                lancamento.valor | currency: 'BRL' }}</td>
+              <td>
                 <a class="button-acoes" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-                <button class="button-acoes" pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" ></button>
+                <button class="button-acoes" pButton icon="pi pi-trash" pTooltip="Excluir"
+                  tooltipPosition="top"></button>
               </td>
             </tr>
           </ng-template>

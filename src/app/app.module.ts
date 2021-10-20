@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LancamentosPesquisaComponent,
     NavBarComponent,
-    PessoasPesquisaComponent
+    PessoasPesquisaComponent,
+    LancamentoCadastroComponent
   ],
   imports: [
     BrowserModule,
