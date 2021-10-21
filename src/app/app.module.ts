@@ -8,6 +8,7 @@ import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
 import {CalendarModule} from 'primeng/calendar';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { LancamentoPessoaComponent } from './lancamento-pessoa/lancamento-pessoa.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     LancamentosPesquisaComponent,
     NavBarComponent,
     PessoasPesquisaComponent,
-    LancamentoCadastroComponent
+    LancamentoCadastroComponent,
+    LancamentoPessoaComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     SelectButtonModule,
     DropdownModule,
     InputNumberModule,
+    InputMaskModule,
 
   ],
   providers: [],
