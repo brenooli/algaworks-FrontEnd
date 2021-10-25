@@ -12,37 +12,61 @@
 
       <div class="p-field p-col-6 p-md-3 p-fluid">
         <label>Vencimentos</label>
-        <p-calendar [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+        <p-calendar ngModel [required]="true" name="vencimento" #vencimento="ngModel" [showIcon]="true"
+          dateFormat="dd/mm/yy"></p-calendar>
+        <app-message class="p-col-6" [control]="vencimento" error="required" text="Informe uma data">
+        </app-message>
       </div>
+
+
       <div class="p-field p-col-6 p-md-3 p-fluid">
         <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento' }}</label>
-        <p-calendar [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+        <p-calendar ngModel [required]=true name="recebimento" #recebimento="ngModel" [showIcon]="true"
+          dateFormat="dd/mm/yy"></p-calendar>
+        <app-message class="p-col-6" [control]="recebimento" error="required" text="Informe uma data">
+        </app-message>
       </div>
+
+
       <div class="p-col-12 p-md-9 p-fluid">
         <label>Descrição</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="5">
+        <app-message class="p-col-12" [control]="descricao" error="required" text="Descrição é obrigatória">
+        </app-message>
+        <app-message class="p-col-12" [control]="descricao" error="minlength"
+          text="Mínimo de {{ descricao.errors?.minlength?.requiredLength}} caracteres"></app-message>
       </div>
+
       <div class="p-col-12 p-md-3 p-fluid">
         <label>Valor</label>
-        <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" placeholder="R$ 0,00"></p-inputNumber>
+        <p-inputNumber [required]=true mode="currency" currency="BRL" locale="pt-BR" placeholder="R$ 0,00" ngModel name="valor"
+          #valor="ngModel">
+        </p-inputNumber>
+        <app-message class="p-col-12" [control]="valor" error="required" text="Valor é obrigatório">
+        </app-message>
       </div>
+
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Categoria</label>
-        <p-dropdown [options]="categorias" placeholder="Selecione" ></p-dropdown>
+        <p-dropdown [required]=true [options]="categorias" placeholder="Selecione"></p-dropdown>
       </div>
+
       <div class="p-col-12 p-md-6 p-fluid">
         <label>Pessoa</label>
-        <p-dropdown [options]="pessoas" placeholder="Selecione" [filter]="true"></p-dropdown>
+        <p-dropdown [required]=true [options]="pessoas" placeholder="Selecione" [filter]="true"></p-dropdown>
       </div>
+
       <div class="p-col-12 p-fluid">
         <label>Observação</label>
         <textarea pInputTextarea rows="3"></textarea>
       </div>
+
       <div class="p-col-12">
         <button pButton type="submit" label="Salvar"></button>
         <button pButton type="button" label="Novo" class="p-button-info"></button>
         <a href="javascript:;">Voltar para a pesquisa</a>
       </div>
+
     </div>
 
   </form>

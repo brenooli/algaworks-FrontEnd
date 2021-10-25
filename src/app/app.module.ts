@@ -9,6 +9,8 @@ import {TableModule} from 'primeng/table';
 import {TooltipModule} from 'primeng/tooltip';
 import {CalendarModule} from 'primeng/calendar';
 import {InputMaskModule} from 'primeng/inputmask';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { LancamentoPessoaComponent } from './lancamento-pessoa/lancamento-pessoa.component';
+import { FormsModule } from '@angular/forms';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { LancamentoPessoaComponent } from './lancamento-pessoa/lancamento-pessoa
     NavBarComponent,
     PessoasPesquisaComponent,
     LancamentoCadastroComponent,
-    LancamentoPessoaComponent
+    LancamentoPessoaComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,9 @@ import { LancamentoPessoaComponent } from './lancamento-pessoa/lancamento-pessoa
     DropdownModule,
     InputNumberModule,
     InputMaskModule,
+    FormsModule,
+    MessageModule,
+    MessagesModule,
 
   ],
   providers: [],
