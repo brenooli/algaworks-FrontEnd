@@ -11,48 +11,20 @@
     </div>
 
     <div class="p-col-12">
-
       <label style="display: block">Vencimento</label>
       <input pInputText type="text" style="width: 95px; margin-right: 5px">
 
       <label>Até</label>
       <input pInputText type="text" style="width: 95px; margin-left: 5px">
-
     </div>
 
     <div class="p-col-12">
       <button pButton type="submit" label="Pesquisar"></button>
     </div>
 
-    <div class="p-grid">
-      <div class="p-col-12">
-        <p-table class="table" [value]="lancamentos" [paginator]="true" [rows]="4" [responsive]="true">
-          <ng-template pTemplate="header">
-            <tr>
-              <th class="col-descricao" [ngStyle]="{textAlign: 'center'}">Pessoa</th>
-              <th class="col-descricao" [ngStyle]="{textAlign: 'center'}">Descrição</th>
-              <th [ngStyle]="{textAlign: 'center'}">Vencimento</th>
-              <th [ngStyle]="{textAlign: 'center'}">Pagamento </th>
-              <th [ngStyle]="{textAlign: 'center'}">Valor</th>
-              <th [ngStyle]="{textAlign: 'center'}" class="col-acao">Ação</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-lancamento>
-            <tr>
-              <td>{{ lancamento.pessoa }}</td>
-              <td>{{ lancamento.descricao }}</td>
-              <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataVencimento | date: 'dd/MM/yyyy' }}</td>
-              <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataPagamento }}</td>
-              <td [ngStyle]="{color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue', textAlign: 'right'}">{{
-                lancamento.valor | currency: 'BRL' }}</td>
-              <td>
-                <a class="button-acoes" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-                <button class="button-acoes" pButton icon="pi pi-trash" pTooltip="Excluir"
-                  tooltipPosition="top"></button>
-              </td>
-            </tr>
-          </ng-template>
-        </p-table>
+    <div class="p-grid p-md-12 p-fluid ">
+      <div class="p-col-12 ">
+        <app-lancamentos-grid [lancamentos] = "lancamentos" ></app-lancamentos-grid>
       </div>
     </div>
 

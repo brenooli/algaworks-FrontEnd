@@ -1,0 +1,24 @@
+<p-table [value]="pessoas" [paginator]="true" [rows]="4" [responsive]="true" styleClass="p-datatable-sm">
+  <ng-template pTemplate="header">
+    <tr>
+      <th [ngStyle]="{textAlign: 'center'}" class="col-descricao">Nome</th>
+      <th [ngStyle]="{textAlign: 'center'}" class="col-descricao">Cidade</th>
+      <th [ngStyle]="{textAlign: 'center'}" class="col-descricao">Estado</th>
+      <th [ngStyle]="{textAlign: 'center'}" class="col-descricao">Status</th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pessoas>
+    <tr>
+      <td [ngStyle]="{fontWeight: 'bold'}" >{{pessoas.nome}}</td>
+      <td [ngStyle]="{fontWeight: 'bold'}">{{pessoas.cidade}}</td>
+      <td [ngStyle]="{fontWeight: 'bold'}">{{pessoas.estado}}</td>
+      <td [ngStyle]="{fontWeight: 'bold'}">{{pessoas.ativo ? 'Ativo' : 'Inativo'}}</td>
+      <td>
+        <a class="button-acoes" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+        <button class="button-acoes" pButton icon="pi pi-trash" pTooltip="Excluir"
+          tooltipPosition="top"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
