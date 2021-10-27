@@ -42,7 +42,7 @@
 
       <div class="p-field p-col-4 p-fluid">
         <label>CEP</label>
-        <p-inputMask ngModel name="cep" #cep="ngModel" mask="99.999-999" [required]=true></p-inputMask>
+        <p-inputMask ngModel name="cep" #cep="ngModel" mask="99.999-999" [required]="true"></p-inputMask>
         <app-message class="p-col-12" [control]="cep" error="required" text="Informe o cep"></app-message>
 
       </div>
