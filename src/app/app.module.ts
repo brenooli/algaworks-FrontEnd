@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { LancamentoService } from './lancamentos/lancamento.service';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 
 import { PessoasModule } from './pessoas/pessoas.module';
@@ -19,10 +21,11 @@ import { PessoasModule } from './pessoas/pessoas.module';
 
     PessoasModule,
     LancamentosModule,
-    CoreModule
+    CoreModule,
+
 
   ],
-  providers: [],
+  providers: [LancamentoService, DatePipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

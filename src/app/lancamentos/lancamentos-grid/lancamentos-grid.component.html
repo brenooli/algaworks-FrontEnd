@@ -1,4 +1,4 @@
-<p-table class="table" [value]="lancamentos" [paginator]="true" [rows]="4" [responsive]="true">
+<p-table class="table" [value]="lancamentos" [paginator]="true" [rows]="4" [responsive]="true" emptyMessage="Nenhum registro encontrado!">
   <ng-template pTemplate="header">
     <tr>
       <th class="col-descricao" [ngStyle]="{textAlign: 'center'}">Pessoa</th>
@@ -14,7 +14,7 @@
       <td>{{ lancamento.pessoa }}</td>
       <td>{{ lancamento.descricao }}</td>
       <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataVencimento | date: 'dd/MM/yyyy' }}</td>
-      <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataPagamento }}</td>
+      <td [ngStyle]="{textAlign: 'center'}">{{ lancamento.dataPagamento | date: 'dd/MM/yyyy' }}</td>
       <td [ngStyle]="{color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue', textAlign: 'right'}">{{
         lancamento.valor | currency: 'BRL' }}</td>
       <td>
