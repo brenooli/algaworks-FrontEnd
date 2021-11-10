@@ -8,26 +8,20 @@ import { LancamentoFiltro, LancamentoService } from '../lancamento.service';
 })
 export class LancamentosPesquisaComponent implements OnInit {
 
-  descricao?: string;
+
+  filtro = new LancamentoFiltro();
   lancamentos: any = [];
-  dataVencimentoInicio?: Date;
-  dataVencimentoFim?: Date;
 
-  constructor(private lancamentoService: LancamentoService ){}
+  constructor(private lancamentoService: LancamentoService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.pesquisar();
   }
 
-  pesquisar(): void{
-    const filtro: LancamentoFiltro = {
-      descricao: this.descricao,
-      dataVencimentoInicio: this.dataVencimentoInicio,
-      dataVencimentoFim: this.dataVencimentoFim
+  pesquisar(): void {
 
-    }
-    this.lancamentoService.pesquisar( filtro )
-      .then( lancamentos => this.lancamentos = lancamentos );
+    this.lancamentoService.pesquisar(this.filtro)
+      .then(lancamentos => this.lancamentos = lancamentos);
 
   }
 

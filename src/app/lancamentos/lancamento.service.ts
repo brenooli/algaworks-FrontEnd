@@ -3,10 +3,12 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
 
-export interface LancamentoFiltro {
+export class LancamentoFiltro {
   descricao?: string;
   dataVencimentoInicio?: Date;
   dataVencimentoFim?: Date;
+  pagina = 0;
+  itemsPorPagina = 5;
 }
 
 @Injectable({
@@ -15,7 +17,7 @@ export interface LancamentoFiltro {
 export class LancamentoService {
 
   lancamentosUrl = 'http://localhost:8080/lancamentos';
-  token= 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwicGVybWlzc29lcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX0NBREFTVFJBUl9MQU5DQU1FTlRPIiwiUk9MRV9DQURBU1RSQVJfUEVTU09BIiwiUk9MRV9QRVNRVUlTQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX1BFU1NPQSIsIlJPTEVfUkVNT1ZFUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvbG9naW4iLCJleHAiOjE2MzYxNDEwMzF9.G53kC0PEIwzKfxFid9Amssw9rd34awTw5-xTF2NFqmI ';
+  token= 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwicGVybWlzc29lcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX0NBREFTVFJBUl9MQU5DQU1FTlRPIiwiUk9MRV9DQURBU1RSQVJfUEVTU09BIiwiUk9MRV9QRVNRVUlTQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX1BFU1NPQSIsIlJPTEVfUkVNT1ZFUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvbG9naW4iLCJleHAiOjE2MzkxNzc0ODR9.7_Y11wQL_5VhhOheFzMf2X1JdzEEtLODq1-qJ7yQ9j8';
 
   constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
@@ -23,7 +25,11 @@ export class LancamentoService {
 
     let params = new HttpParams();
     const headers = new HttpHeaders()
-    .append('Authorization', this.token);
+      .append('Authorization', this.token);
+
+    params = params.set('page', filtro.pagina);
+    params = params.set('size', filtro.itemsPorPagina);
+
 
     if (filtro.descricao) {
       params = params.set('descricao', filtro.descricao);
