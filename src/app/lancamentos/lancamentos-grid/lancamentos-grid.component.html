@@ -1,4 +1,7 @@
-<p-table class="table" [value]="lancamentos" [paginator]="true" [rows]="4" [responsive]="true" emptyMessage="Nenhum registro encontrado!">
+<p-table class="table" [value]="lancamentos" emptyMessage="Nenhum registro encontrado!"
+  [paginator]="true" [rows]="filtro.itensPorPagina"
+  [responsive]="true" [lazy]="true" [totalRecords] = "totalRegistros"
+  (onLazyLoad) = "aoMudarPagina($event)">
   <ng-template pTemplate="header">
     <tr>
       <th class="col-descricao" [ngStyle]="{textAlign: 'center'}">Pessoa</th>
@@ -19,8 +22,7 @@
         lancamento.valor | currency: 'BRL' }}</td>
       <td>
         <a class="button-acoes" pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-        <button class="button-acoes" pButton icon="pi pi-trash" pTooltip="Excluir"
-          tooltipPosition="top"></button>
+        <button class="button-acoes" pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
       </td>
     </tr>
   </ng-template>

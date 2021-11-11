@@ -28,7 +28,8 @@
 
       <div class="p-grid p-md-12 p-fluid ">
         <div class="p-col-12 ">
-          <app-lancamentos-grid [lancamentos]="lancamentos"></app-lancamentos-grid>
+          <app-lancamentos-grid [totalRegistros]="totalRegistros" [filtro]="filtro"
+           [lancamentos]="lancamentos" (calculoPagina) = "receberCalculoPagina($event)" ></app-lancamentos-grid>
         </div>
       </div>
 
